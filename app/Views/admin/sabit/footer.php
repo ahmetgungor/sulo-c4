@@ -24,5 +24,14 @@
   <script src="<?=base_url()?>/admin/js/custom.js"></script>
   <script src="<?=base_url()?>/admin/js/jquery.mask.js"></script>
   <!-- Page Specific JS File -->
+
+  <script src="<?=base_url()?>/admin/js/datatables/datatables.min.js"></script>
+  <script src="<?=base_url()?>/admin/js/datatables/datatables.min.css"></script>
 </body>
 </html>
+
+<script>
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+} );
+</script>

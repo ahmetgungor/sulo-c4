@@ -64,6 +64,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
+                    
                     <div class="form-group">
                             <label>Tc:</label>
                             <input type="text" name="tc" value="<?=$user['tc']?>" id="tc" class=" form-control">

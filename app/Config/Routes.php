@@ -57,4 +57,6 @@ $routes->group('admin', function($routes)
 	$routes->get('login/edit/(:num)', 'Admin\Login::index/$1');
 	$routes->post('login', 'Admin\Login::indexPost');
 	$routes->post('login/update/(:num)', 'Admin\Login::update/$1');
+	$routes->post('login/list', 'Admin\Login::userList');
+
 });

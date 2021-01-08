@@ -16,6 +16,13 @@ class Login extends BaseController
 		
 	}
 
+	public function userList()
+	{
+		$user = new LoginModel();
+		$data['userlist'] = $user->orderBy('id','desc')->findAll();
+		return admin_('loginUserList',$data,'Kullanıcı Listesi');
+	}
+
 	public function index($id=null)
 	{
 		$this->id =  $id;
