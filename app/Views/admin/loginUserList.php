@@ -9,10 +9,10 @@
  
 <?php
 /** 
- TODO KULLANICI BAKİYE VE SON GİRİŞ ZAMANI YENİDEN GÖZDEN GEÇİRİLECEK
+ TODO KULLANICI BAKİYE VE üye grubu YENİDEN GÖZDEN GEÇİRİLECEK 
     */
 ?>
-<table id="example" class="display" style="width:100%">
+<table id="dataTable" class=" table table-bordered" >
         <thead>
             <tr>
                 <th>id</th>
@@ -26,17 +26,35 @@
             </tr>
         </thead>
         <tbody>
-            
+            <?php
+                foreach ($userlist as $key => $value) {
+            ?>
+            <tr>
+                    <td><?=$value['id']?></td>
+                    <td><?=$value['isimsoyisim']?></td>
+                    <td><?=$value['kadi']?></td>
+                    <td><?=$value['tc']?></td>
+                    <td></td>
+                    <td><?=$value['ktarihi']?></td>
+                    <td></td>
+                    <td><a href="" class="btn btn-info">Detay <i class="fa fa-find"></i></a> </td>
+            </tr>
+
+            <?php
+                }
+            ?>
 
         </tbody>
         <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>id</th>
+                <th>isimSoyisim</th>
+                <th>Kullanıcı Adı</th>
+                <th>Tc</th>
+                <th>Bakiye</th>
+                <th>Kayıt Tarihi</th>
+                <th>Üye Grubu</th>
+                <th>Detay</th>
             </tr>
         </tfoot>
     </table>

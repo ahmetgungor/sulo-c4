@@ -26,7 +26,7 @@
   <!-- Page Specific JS File -->
 
   <script src="<?=base_url()?>/admin/js/datatables/datatables.min.js"></script>
-  <script src="<?=base_url()?>/admin/js/datatables/datatables.min.css"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
 </body>
 </html>
 
