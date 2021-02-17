@@ -1,4 +1,4 @@
-<div class="main-sidebar">
+<div class="main-sidebar" style="overflow: hidden; outline: none;">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
             <a href="index.html">Panel v1</a>

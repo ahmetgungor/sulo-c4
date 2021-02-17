@@ -133,6 +133,14 @@ $(function() {
     }).niceScroll();
   }
 
+  $("#kategori").css({
+    height: 180
+  }).niceScroll();
+
+  $("#sayfa").css({
+    height: 315
+  }).niceScroll();
+
   $(".main-content").css({
     minHeight: $(window).outerHeight() - 108
   })

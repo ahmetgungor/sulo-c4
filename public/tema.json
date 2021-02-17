@@ -1,0 +1,23 @@
+{
+    "Genel":{
+        "dil":[
+            {"":"Lütfen  Dil Seçin"},
+            {"1":"TR"},
+            {"2":"ENG"}
+        ],
+        "tasarim":[
+            {"page":"İç Sayfa"},
+            {"galeri":"Galeri"}
+        ],
+        "konum":[
+            {"":"Lütfen Menü Seçin"},
+            {"AnaMenu":"Ana Menu"},
+            {"Footer":"Footer Menu"}
+        ],
+        "site":[
+            {"":"Lütfen Site Seçin"},
+            {"localhost":"localhos"},
+            {"eplassigorta.com.tr":"eplassigorta.com.tr"}
+        ]
+    }
+}

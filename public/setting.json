@@ -1,0 +1,40 @@
+{
+    "ParaYatirmaIzinleri":{
+        "gunlukLimit":[
+            {"0":"Hepsi"},
+            {"1":"1 Katı"},
+            {"2":"2 Katı"},
+            {"3":"3 Katı"},
+            {"4":"4 Katı"},
+            {"5":"5 Katı"}
+        ],
+        "CekimdeDiscountTutariniAl":[
+            {"0":"Yatırama İzin Ver"},
+            {"50":"50 TL ve altındaysa yatirama izin ver"},
+            {"100":"100 TL ve altındaysa yatirama izin ver"},
+            {"150":"150 TL ve altındaysa yatirama izin ver"}
+        ]
+    },
+    "ParaCekimIzinleri":{
+        "CekimdeDiscountTutariniAl":[
+            {"0":"Yatırama İzin Ver"},
+            {"50":"50 TL ve altındaysa yatirama izin ver"},
+            {"100":"100 TL ve altındaysa yatirama izin ver"},
+            {"150":"150 TL ve altındaysa yatirama izin ver"}
+        ]
+    },
+    "DiscountAyarlari":{
+        "DiscountKacGunGecerli":[
+            {"1":"Son 1 Gün"},
+            {"2":"Son 2 Gün"},
+            {"3":"Son 3 Gün"},
+            {"4":"Son 4 Gün"}
+        ],
+        "DiscountTutarinKacKatiniOduyorsunuz":[
+            {"25":"25 Katı"},
+            {"50":"50 Katı"},
+            {"100":"100 Katı"},
+            {"150":"150 Katı"}
+        ]
+    }
+}
