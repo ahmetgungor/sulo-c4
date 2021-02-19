@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/iptalinet/c4.iptali.net/
+    - /bin/cp -R * $DEPLOYPATH
+    
