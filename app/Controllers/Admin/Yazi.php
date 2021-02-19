@@ -7,12 +7,65 @@ use \App\Models\PageModel;
 
 class Yazi extends BaseController
 {
+    private $db;
+
     public function __construct()
 	{	
 		//session tanımla
 		$this->session = Services::session();
-		
+		$this->db = \Config\Database::connect();
 	}
+
+
+    public function delete()
+    {
+        $id = $data['id'] = $this->request->getGet('id');
+        $tip =$data['tip'] = $this->request->getGet("tip");
+        $site = $data['site'] = $this->request->getGet("site");
+        $dil = $data['dil'] = $this->request->getGet("dil");
+        
+        //http://127.0.0.2/admin/yazi/list/1?site=localhost&dil=1
+        $pageModel = new PageModel();
+        $a = $pageModel->where('id',$id)->get()->getRow();
+        $result = $this->db->table('resim')->where('yaziid',$a->id)->get()->getResult();
+        $query = $this->db->query('select count(yaziid) as num_rows from resim where yaziid=?',$a->id)->getRow();
+        
+        if($query->num_rows != 0)
+        {
+            foreach ($result as $key => $value)
+            {
+                @unlink(ROOTPATH.'public/uploads'.$value->resim); 
+                $this->db->table('resim')->delete(['id'=>$value->id]);
+            }
+            
+        }
+
+        $menu_num = $this->db->query('select count(yazi_id) as num_rows from menuid where yazi_id=?',$a->id)->getRow();
+
+        if($menu_num->num_rows == 0)
+        {
+            $a = $pageModel->delete($id);
+            if($a)
+            {
+                return  redirect()->to(base_url("admin/yazi/list/".$tip."?site=".$site."&dil=".$dil))->with('success',"Silme İşlemi Başarılı");
+            }
+        }else{
+            $btn = '<a href="'.base_url("admin/menu/index").'" class="btn btn-info btn-large">Menu de Görüntüle</a>';
+            return redirect()->to(base_url("admin/yazi/list/".$tip."?site=".$site."&dil=".$dil))->with('errors',["Menu Alanında Bu İçerik Kullanıldığı için Silme İşlemi Yapılamadi",$btn]);
+        }
+        
+    }
+
+    public function list($tip=null)
+    {
+        $data['tip'] = $tip;
+        $data['site'] = $site = $this->request->getGet('site');
+        $data['dil'] = $dil =  $this->request->getGet('dil');
+        $data['pagedb'] = $pagedb = new PageModel();
+        
+        return \admin_("page_list",$data,"İçerik Listesi");
+    }
+
     public function index(int $tip = null,int $yaziid=null)
     {
         $data['tip'] = $tip;

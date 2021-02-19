@@ -11,9 +11,9 @@
 <?php endif ?>
 
 <?php if (session()->has('errors')) : ?>
-    <ul class="alert alert-danger error">
+    
     <?php foreach (session('errors') as $error) : ?>
-        <li><?= $error ?></li>
+        <div class="alert alert-danger error"><?= $error ?></div>
     <?php endforeach ?>
-    </ul>
+    
 <?php endif ?>

@@ -25,6 +25,19 @@ class PageModel extends Model
     protected $validationRules    = []; 
     protected $validationMessages = []; 
     protected $skipValidation     = false;
+
+
+    public function dataList($tip=null,$site=null,$dil=null)
+    {
+        $where = ["tip"=>$tip,"site"=>$site,'dil'=>$dil];
+        return PageModel::where($where)->findAll();
+        
+        
+        
+    }
+
+
+
 }
 
 ?>

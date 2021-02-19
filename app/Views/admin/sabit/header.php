@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="<?=base_url()?>/admin/css/components.css">
 </head>
 
-<body>
+<body >
   <div id="app">
     <div class="main-wrapper">
       <div class="navbar-bg"></div>

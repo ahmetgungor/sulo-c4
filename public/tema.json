@@ -17,7 +17,8 @@
         "site":[
             {"":"Lütfen Site Seçin"},
             {"localhost":"localhos"},
-            {"eplassigorta.com.tr":"eplassigorta.com.tr"}
+            {"eplassigorta.com.tr":"eplassigorta.com.tr"},
+            {"tbcof.com":"tbcof.com"}
         ]
     }
 }

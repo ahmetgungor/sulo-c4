@@ -1,0 +1,86 @@
+{
+  "name": "SLive TV",
+  "description": "SLive TV izle",
+  "site_logo": "https://tbcof.com/live/assets/images/slive.png",
+  "site_message": "Güncel Adresimiz: slivestream.com",
+  "backgroundColor": "#05070b",
+  "facebook": "url",
+  "twitter": "url",
+  "instagram": "url",
+  "youtube": "url",
+  "channels": [
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo01.png",
+      "name": "Bein Sports HD 1",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo02.png",
+      "name": "Bein Sports HD 2",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo03.png",
+      "name": "S Sports",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo01.png",
+      "name": "Bein Sports HD 1",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo02.png",
+      "name": "Bein Sports HD 2",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo03.png",
+      "name": "S Sports",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo01.png",
+      "name": "Bein Sports HD 1",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo02.png",
+      "name": "Bein Sports HD 2",
+      "stream": ""
+    },
+    {
+      "logo": "https://tbcof.com/live/assets/images/logo03.png",
+      "name": "S Sports",
+      "stream": ""
+    }        
+  ],
+  "liveScores": [
+    {
+      "category": "FUTBOL",
+      "type": "Çin",
+      "status": "Devre Arası",
+      "teams": "Guangzhou RF FC 0:4 Guangzhou Evergrande"
+    },
+    {
+      "category": "FUTBOL2",
+      "type": "Çin",
+      "status": "Devre Arası",
+      "teams": "Guangzhou RF FC 0:4 Guangzhou Evergrande"
+    }    
+  ],
+  "news": [
+    {
+      "title": "Erol bulut final sonrası veda etti",
+      "time": "00:29"
+    },
+    {
+      "title": "Erol bulut final sonrası veda etti2",
+      "time": "00:29"
+    },
+    {
+      "title": "Erol bulut final sonrası veda etti3",
+      "time": "00:29"
+    }        
+  ]
+}

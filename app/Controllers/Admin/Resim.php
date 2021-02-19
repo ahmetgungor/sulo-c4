@@ -16,7 +16,6 @@ class Resim extends BaseController
     public function index($id = null)
     {
       $data['id'] = $id;
-       
        return view('Admin/resim',$data);
     }
 
