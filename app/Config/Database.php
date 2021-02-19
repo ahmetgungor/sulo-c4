@@ -32,9 +32,9 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => 'adasus',
-		'database' => '',
+		'username' => 'iptaline_admin',
+		'password' => 'iptaline_admin',
+		'database' => 'admin123456*',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
@@ -59,8 +59,8 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $tests = [
 		'DSN'      => '',
-		'hostname' => '127.0.0.1',
-		'username' => '',
+		'hostname' => 'localhost',
+		'username' => 'iptaline_admin',
 		'password' => '',
 		'database' => ':memory:',
 		'DBDriver' => 'SQLite3',
