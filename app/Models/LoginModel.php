@@ -28,5 +28,13 @@ class LoginModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+
+    function login($email,$parola)
+    {
+
+        return $this->db->query('SELECT *,count(id) as toplam FROM user where (kadi=? or email =?) and sifre=?',[$email,$email,($parola)])->getRow();
+    }
+
 }
 ?>

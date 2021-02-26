@@ -14,7 +14,7 @@ class PageModel extends Model
     protected $allowedFields = [
         'dil','id','site','g_title','g_keyw',
         'g_desc','baslik','link','aciklama',
-        'y_tarihi','g_tarihi','yayin','tasarim','tip','ustmenu'
+        'y_tarihi','g_tarihi','yayin','tasarim','tip','ustmenu','ekalan'
     ];
 
     protected $useTimestamps = true;

@@ -51,8 +51,29 @@ class Ayar extends BaseController
 
         $this->savePost("css","css",$site,$dil);
         $this->savePost("js","js",$site,$dil);
-       
-        return  \admin_('ayar',$data,'Site Ayarları');
+
+        $this->savePost("bgcolor","bgcolor",$site,$dil);
+        $this->savePost("bglink","bglink",$site,$dil);
+
+        $this->upload("mobile_reklam1",'mobile_reklam1',$site,$dil);
+        $this->savePost("mobile_reklam1url","mobile_reklam1url",$site,$dil);
+        
+        $this->upload("mobile_reklam2",'mobile_reklam2',$site,$dil);
+        $this->savePost("mobile_reklam2url","mobile_reklam2url",$site,$dil);
+
+        $this->upload("mobile_reklam3",'mobile_reklam3',$site,$dil);
+        $this->savePost("mobile_reklam3url","mobile_reklam3url",$site,$dil);
+
+        $this->savePost("bahisyap_btn","bahisyap_btn",$site,$dil);
+        
+        if($promo=='false')
+        {
+            $title = 'Site Ayarları';
+        }else{
+            $title = 'Reklam Ayarları';
+        }
+
+        return  \admin_('ayar',$data,$title);
     }
 
 
@@ -93,7 +114,7 @@ class Ayar extends BaseController
         if (isset($name) && !empty($name->getName())) {
             
               $imageName =  strtolower( \convert_accented_characters(\underscore($name->getName())));
-              $uploadStatus=  $name->move(ROOTPATH.'public/uploads/setting',$imageName);
+              $uploadStatus=  $name->move(ROOTPATH.'public_html/uploads/setting',$imageName);
               if($uploadStatus)
               {
                 $where = ['anahtar'=>$dbName,'site'=>$site,'dil'=>$dil];
@@ -108,7 +129,7 @@ class Ayar extends BaseController
                 {
                     $ayarDB->save($save);
                 }else{
-                    \unlink(ROOTPATH.'public/uploads/setting/'.$row[0]['deger']);
+                    \unlink(ROOTPATH.'public_html/uploads/setting/'.$row[0]['deger']);
                     $ayarDB->where($where)->update($row[0]['id'],$save);
                 }
                 

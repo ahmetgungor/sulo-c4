@@ -37,8 +37,12 @@ class Menu extends BaseController
             $kategoriList= $menuDb->getPageMenu(3,$site,$dil,$konum);
             $data['kategoriList'] = $kategoriList;
 
-            $pageList= $menuDb->getPageMenu(1,$site,$dil,$konum);
+            $pageList= $menuDb->getPageMenu('1',$site,$dil,$konum);
             $data['pageList'] = $pageList;
+
+            $kanal= $menuDb->getPageMenu('5',$site,$dil,$konum);
+            $data['kanalListesi'] = $kanal;
+            
             $test = $menuDb->jsonGetMenu($site,$dil,$konum,0);
             $data['json_menu'] =  \json_encode($test);
         }

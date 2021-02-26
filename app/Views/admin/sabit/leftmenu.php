@@ -25,13 +25,22 @@
                   <li><a class="nav-link" href="<?=base_url("admin/yazi/list/4")?>">Listele</a></li>
                 </ul>
               </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kanal Listesi</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="<?=base_url("admin/yazi/index/5/1")?>">Yeni Kanal</a></li>
+                  <li><a class="nav-link" href="<?=base_url("admin/yazi/list/5")?>">Listele</a></li>
+                </ul>
+              </li>
               <li class="nav-item "><a href="<?=base_url("admin/kategori/index/2")?>" class="nav-link" title="Kategori İşlemleri"><i class="fas fa-th"></i> <span>Kategori İşemleri</span></a>
               </li>
               <li class="nav-item "><a href="<?=base_url("admin/menu/index")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Menu</span></a>
               </li>
-              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=false")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Site Ayarları</span></a>
+              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=false&site=tbcof.com&dil=1")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Site Ayarları</span></a>
               </li>
-              
+              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=true&site=tbcof.com&dil=1")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Reklam Ayarları</span></a>
+              </li>
             </ul>
 
             <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

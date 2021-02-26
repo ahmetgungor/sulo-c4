@@ -6,18 +6,19 @@
             {"2":"ENG"}
         ],
         "tasarim":[
+            {"AnaSayfa":"Ana Sayfa"},
             {"page":"İç Sayfa"},
-            {"galeri":"Galeri"}
+            {"galeri":"Galeri"},
+            {"Link":"Link"}
         ],
         "konum":[
             {"":"Lütfen Menü Seçin"},
             {"AnaMenu":"Ana Menu"},
-            {"Footer":"Footer Menu"}
+            {"Footer":"Footer Menu"},
+            {"KanalListesi":"Kanal Listesi"}
         ],
         "site":[
             {"":"Lütfen Site Seçin"},
-            {"localhost":"localhos"},
-            {"eplassigorta.com.tr":"eplassigorta.com.tr"},
             {"tbcof.com":"tbcof.com"}
         ]
     }

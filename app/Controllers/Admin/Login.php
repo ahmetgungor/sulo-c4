@@ -65,9 +65,9 @@ class Login extends BaseController
 			'sifre'=>md5($this->request->getPost('sifre')),
 			'email'=>$this->request->getPost('email'),
 			'gsm'=>$this->request->getPost('gsm'),
-			'dogumtarihi'=>$this->request->getPost('dogumtarihi'),
+			'//dogumtarihi'=>$this->request->getPost('dogumtarihi'),
 			'aciklama'=>$this->request->getPost('notalani'),
-			'tc'=>$this->request->getPost('tc'),
+			//'tc'=>$this->request->getPost('tc'),
 			'gkodu'=>random_string('alnum', 32),
 			'aktif'=>1
 		];
@@ -82,10 +82,10 @@ class Login extends BaseController
 			],
 			'isimsoyisim' => [
 				'label'=>'İsim Soyisim',
-				'rules'=>'required|min_length[5]',
+				'rules'=>'required|min_length[3]',
 				'errors'=>[
 					'required'=>'İsim Soyisim Boş Bırakılamaz',
-					'min_length'=>'İsim Soyisim En Az 5 Karakter Olmak Zorunda'
+					'min_length'=>'İsim Soyisim En Az 3 Karakter Olmak Zorunda'
 				]
 			],
 			'email' 	  => [
@@ -128,9 +128,9 @@ class Login extends BaseController
 			
 			'email'=>$this->request->getPost('email'),
 			'gsm'=>$this->request->getPost('gsm'),
-			'dogumtarihi'=>$this->request->getPost('dogumtarihi'),
+			//'dogumtarihi'=>$this->request->getPost('dogumtarihi'),
 			'aciklama'=>$this->request->getPost('notalani'),
-			'tc'=>$this->request->getPost('tc'),
+			//'tc'=>$this->request->getPost('tc'),
 			'aktif'=>1
 		];
 		if(!empty($this->request->getPost('sifre')))
@@ -192,7 +192,44 @@ class Login extends BaseController
 		}
 	}
 
+	 function log_in()
+	 {
+		$data['test'] = '';
+		
 
+		return 	view('admin/log_in', $data);
+	 }
+
+	 function log_inPOST()
+	 {
+		$email = $this->request->getPost('email');
+		$sifre = md5($this->request->getPost('sifre'));
+
+		$user = new LoginModel();
+		
+		$u = $user->login($email,$sifre);
+		
+		if($u->toplam ==0)
+		{
+			return redirect()->back()->withInput()->with('errors',['Kullanıcı veya Şifre Hatalı']);
+		}else{
+			$session =	\Config\Services::session();
+			$session->set([
+				'status'=>true,
+				'email'=>$u->email,
+				'domain'=>$u->aciklama
+			]);
+			return redirect()->to(base_url('admin/ayar/index?promo=false&site='.$u->aciklama.'&dil=1'));
+		}
+		
+
+
+	 }
+
+	 function log_out()
+	 {
+
+	 }
 
 }
 ?>

@@ -5,7 +5,7 @@ foreach ($db as $key => $value) {
     $ad[$value['anahtar']] =$value['deger'];
 }
 
-
+if(empty($site) && empty($dil)):
 ?>
 
 <div class="row">
@@ -33,6 +33,7 @@ foreach ($db as $key => $value) {
         </div>
     </div>
 </div>
+<?php endif;?>
 <div class="row mt-1 mb-1">
 <div class="col-lg-12">
 <?= view('App\Views\admin\sabit\_notification') ?>
@@ -43,6 +44,9 @@ foreach ($db as $key => $value) {
         <div class="card">
             <div class="card-body">
                 <form action="" method="POST" enctype="multipart/form-data"  class="form">
+                <?php
+                if($promo == "false"):
+                ?>
                     <div class="row">
                         <div class="col-lg-6">
                         
@@ -116,11 +120,47 @@ foreach ($db as $key => $value) {
                             </div>
                         </div>
                     </div>
-
+<!-- Link ve color -->
+<div class="row">
+    <div class="col-lg-6">
+            <div class="form-group">
+                <label>Arka Plan Link</label>
+                <?php
+                $vdata = (array_key_exists('bglink',$ad))?$ad['bglink']:'';
+                if(array_key_exists('bglink',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=bglink")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+                <input type="text" name="bglink" class="form-control" value="<?=$vdata?>">
+            </div>
+    </div>
+    <div class="col-lg-6">
+            <div class="form-group">
+                <label>Arka Plan Renk</label>
+                <?php
+                $vdata = (array_key_exists('bgcolor',$ad))?$ad['bgcolor']:'';
+                if(array_key_exists('bgcolor',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=bgcolor")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+                <input type="text" name="bgcolor" class="form-control" value="<?=$vdata?>">
+            </div>
+    </div>
+</div>
 <hr>
 <?php
+endif;
 if($promo == "true"):
 ?>
+
+
+<!-- reklam alan image link -->
                     <div class="row">
                         <div class="col-lg-6">
                         
@@ -240,10 +280,138 @@ if($promo == "true"):
                         </div>
                     </div>
                     <hr>
+
+                    <h3 class="text-center">Mobile Reklam</h3>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="" for="customFile2">Mobile Görsel Reklam 1</label>
+                <input type="file" name="mobile_reklam1" class="form-control" id="customFile2">
+                <?php
+                if(array_key_exists('mobile_reklam1',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("/uploads/setting/".$ad['mobile_reklam1'])?>" target="_blank" style="font-size:18px; margin-top:10px">
+                    <i class="fas fa-images" style="font-size:18px"></i>
+                    Yüklenen Resmi Görüntüle
+                    </a>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=mobile_reklam1")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+        <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Mobile Reklam Link 1</label>
+                            <?php
+                            $vdata = (array_key_exists('mobile_reklam1url',$ad))?$ad['mobile_reklam1url']:'';
+                            if(array_key_exists('mobile_reklam1url',$ad))
+                            {
+                            ?>
+                                <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=mobile_reklam1url")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                            <?php
+                            }
+                            ?>
+                            <input type="text" name="mobile_reklam1url" class="form-control" value="<?=$vdata?>">
+                        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="" for="customFile2">Mobile Görsel Reklam 2</label>
+                <input type="file" name="mobile_reklam2" class="form-control" id="customFile2">
+                <?php
+                if(array_key_exists('mobile_reklam2',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("/uploads/setting/".$ad['mobile_reklam2'])?>" target="_blank" style="font-size:18px; margin-top:10px">
+                    <i class="fas fa-images" style="font-size:18px"></i>
+                    Yüklenen Resmi Görüntüle
+                    </a>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=mobile_reklam2")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+        <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Mobile Reklam Link 2</label>
+                            <?php
+                            $vdata = (array_key_exists('mobile_reklam2url',$ad))?$ad['mobile_reklam2url']:'';
+                            if(array_key_exists('mobile_reklam2url',$ad))
+                            {
+                            ?>
+                                <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=mobile_reklam2url")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                            <?php
+                            }
+                            ?>
+                            <input type="text" name="mobile_reklam2url" class="form-control" value="<?=$vdata?>">
+                        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="" for="customFile2">Mobile Görsel Reklam 3</label>
+                <input type="file" name="mobile_reklam3" class="form-control" id="customFile2">
+                <?php
+                if(array_key_exists('mobile_reklam3',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("/uploads/setting/".$ad['mobile_reklam3'])?>" target="_blank" style="font-size:18px; margin-top:10px">
+                    <i class="fas fa-images" style="font-size:18px"></i>
+                    Yüklenen Resmi Görüntüle
+                    </a>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=mobile_reklam3")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+        <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Mobile Reklam Link 3</label>
+                            <?php
+                            $vdata = (array_key_exists('mobile_reklam3url',$ad))?$ad['mobile_reklam3url']:'';
+                            if(array_key_exists('mobile_reklam3url',$ad))
+                            {
+                            ?>
+                                <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=mobile_reklam3url")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                            <?php
+                            }
+                            ?>
+                            <input type="text" name="mobile_reklam3url" class="form-control" value="<?=$vdata?>">
+                        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+                <div class="form-group">
+                            <label>Mobile player bahis yap buton url</label>
+                            <?php
+                            $vdata = (array_key_exists('bahisyap_btn',$ad))?$ad['bahisyap_btn']:'';
+                            if(array_key_exists('bahisyap_btn',$ad))
+                            {
+                            ?>
+                                <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=bahisyap_btn")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                            <?php
+                            }
+                            ?>
+                            <input type="text" name="bahisyap_btn" class="form-control" value="<?=$vdata?>">
+                        </div>
+        </div>
+    </div>
 <?php 
 endif;
-?>
-                 
+
+                if($promo == "false"):
+                ?>                 
 
                     <div class="row">
                         <div class="col-lg-6">
@@ -275,7 +443,9 @@ endif;
                             </div>
                         </div>
                     </div>
-
+<?php
+endif;
+?>
                     <div class="row mt-3">
                         <div class="col-lg-12">
                             <input type="submit" value="Ayarları Kayıt Et" class="btn btn-success btn-large pull-right">

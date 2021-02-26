@@ -69,6 +69,18 @@ var arrayjson = <?=$json_menu?>;
                 <?php
                 endforeach;
                 ?>
+                
+                <hr>
+                <?php
+                foreach ($kanalListesi as $key => $value):
+                ?>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="sayfalar[]" value="<?=$value['id']?>" id="exampleCheck1<?=$value['id']?>">
+                    <label class="form-check-label" for="exampleCheck1<?=$value['id']?>"><?=$value['baslik']?></label>
+                </div>
+                <?php
+                endforeach;
+                ?>
                 </div>
                 </div>
         </div>

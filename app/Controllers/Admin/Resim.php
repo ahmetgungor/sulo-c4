@@ -16,7 +16,7 @@ class Resim extends BaseController
     public function index($id = null)
     {
       $data['id'] = $id;
-       return view('Admin/resim',$data);
+       return view('admin/resim',$data);
     }
 
 
@@ -26,7 +26,7 @@ class Resim extends BaseController
         helper(['text','inflector']);
         $img = $this->request->getFile('file');
         $name = strtolower(\convert_accented_characters(\underscore($img->getName())));
-        $i=  $img->move(ROOTPATH.'public/uploads',$name);
+        $i=  $img->move(ROOTPATH.'public_html/uploads',$name);
         
         if($i)
         {
@@ -67,7 +67,7 @@ class Resim extends BaseController
         $data_list = $this->request->getPost('data');
         $selectImage = $data_list['selectImg'];
         $data_list = array_diff_key($data_list,['selectImg'=>'']);
-        \print_r($selectImage);
+     
         print_r($data_list);
        
         foreach($data_list  as $key=>$val)
@@ -94,7 +94,7 @@ class Resim extends BaseController
            
             echo $resim->getLastQuery();
             
-            \print_r($c);
+           
         }
        /* 
         $resim = new ResimModel();

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.css" integrity="sha512-jrLDXl9jUPe5DT19ukacvpX39XiErIBZxiaVMDFRe+OAKoBVYO126Dt7cvhMJ3Fja963lboD9DH+ev/2vbEnMw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.min.js" integrity="sha512-5HcOw3x/g3GAUpNNyvKYB2/f8ivVNBVebdqCxz3Mmdftx7vXOdbYvonB2Det6RVcA1IDxYeYWTAzxRg+c6uvYQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+
+    <script src="./assets/js/main.js"></script>
+    <title>mobile-app</title>
+</head>
+<body class="hide-player">
+  <div class="wrapper">
+    <div class="channels">
+      <div class="js-next">
+        <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><g><path class="icon-pasif" fill="currentColor" d="M188.74 256l56.78 56.89L91.21 466.9a24 24 0 0 1-33.94 0l-22.7-22.65a23.93 23.93 0 0 1 0-33.84z"></path><path class="icon-aktif" fill="currentColor" d="M91.25 45.06l194.33 194a23.93 23.93 0 0 1 0 33.84l-40 40-211-211.34a23.92 23.92 0 0 1 0-33.84l22.7-22.65a24 24 0 0 1 33.97-.01z"></path></g></svg>
+      </div>
+      <div class="js-prev">
+        <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><g><path class="icon-pasif" fill="currentColor" d="M188.74 256l56.78 56.89L91.21 466.9a24 24 0 0 1-33.94 0l-22.7-22.65a23.93 23.93 0 0 1 0-33.84z"></path><path class="icon-aktif" fill="currentColor" d="M91.25 45.06l194.33 194a23.93 23.93 0 0 1 0 33.84l-40 40-211-211.34a23.92 23.92 0 0 1 0-33.84l22.7-22.65a24 24 0 0 1 33.97-.01z"></path></g></svg>
+      </div>      
+      <div class="js-channels">
+                                 
+      </div>
+    </div>
+    <div class="categories">
+      <ul>
+        <li class="js-category-toggle" data-type="all">
+          <span>TÜMÜ</span>
+        </li>   
+        <li class="js-category-toggle" data-type="Futbol">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_1"></use></g></svg>
+        </li>
+        <li class="js-category-toggle" data-type="Basketbol">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_3"></use></g></svg>
+        </li>        
+        <li class="js-category-toggle" data-type="Voleybol">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_6"></use></g></svg>
+        </li>        
+        <li class="js-category-toggle" data-type="Beyzbol">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_4"></use></g></svg>
+        </li>                
+        <li class="js-category-toggle" data-type="Masa Tenisi">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_10"></use></g></svg>
+        </li>                        
+        <li class="js-category-toggle" data-type="eSports">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_40"></use></g></svg>
+        </li>                                
+        <li class="js-category-toggle" data-type="CSGO">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_86"></use></g></svg>
+        </li>                                        
+        <li class="js-category-toggle" data-type="Buz Hokeyi">
+          <svg class="icon"><g><use xlink:href="./assets/images/icons.svg#sports_2"></use></g></svg>
+        </li>                                                
+      </ul>
+    </div>
+    <div class="matches js-matches">
+    </div>
+    <div class="player js-player">
+      <div class="player-inner">
+        <div class="video-loader js-loader">
+          <div class="loader-text">
+            <div class="loader-teams">
+              <div class="loader-home">
+                <img src={NullImage} />
+                <div class="loader-team-name">Takım 1</div>
+              </div>
+              <div class="loader-bar">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div class="loader-away">
+                <img src={NullImage} />
+                <div class="loader-team-name">Takım 2</div>
+              </div>
+            </div>
+            <div class="loader-loading">Yükleniyor...</div>
+          </div>
+        </div>          
+        <div class="close js-player-close">KAPAT</div>
+        <video class="demo-player-area" width="100%" height="250" autoPlay loop crossOrigin playsInline muted>
+        </video>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

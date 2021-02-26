@@ -1,11 +1,14 @@
 $(function() {
 
-  $.getJSON("https://tbcof.com/live/assets/datas.json", function(data){
-      document.title = data.name + 'Ücretiz Maç İzle - 2020';
-      document.description = data.name + 'Ücretiz Maç İzle - 2020';
-      $('.js-message-area').text(data.site_message);
-      $('.js-site-logo').attr('src', data.site_logo);
-      document.documentElement.style.setProperty('--base_color', data.backgroundColor);
+  $.getJSON("http://iptali.net/services/kanal_listesi/tbcof.com/1", function(data){
+    console.log(data)
+      document.title = data.baslik + 'Ücretiz Maç İzle - 2020';
+      document.description = data.baslik + 'Ücretiz Maç İzle - 2020';
+      $('.js-message-area').text(data.logo);
+      $('.js-site-logo').attr('src', upload_dir+data.logo);
+      document.documentElement.style.setProperty('--base_color', data.bgcolor);
+      $('#pagesikin').css('background-image', 'url("' + upload_dir+data.arkaplan + '")');
+      $('#pagesikin').attr('href',data.bglink);
       data.channels.map(item => {
         $('.js-channel-items').append(`
           <div class="item js-channel-item" data-name="${item.name}">
@@ -361,7 +364,9 @@ $(function() {
     document.description = $(this).attr('data-name') + " - Canlı İzle";
     const homeTeam = $(this).find('.teams div:nth-child(1)').text().replace(/\s/g,"-").toLowerCase();
     const awayTeam = $(this).find('.teams div:nth-child(2)').text().replace(/\s/g,"-").toLowerCase();
-    window.history.pushState('tv', title, '/live/canli-izle/' + title.replace(/\s/g,"-").toLowerCase());
+      
+    window.history.pushState('tv', title, base_url+ '/canli-izle/' + title.replace(/\s/g,"-").toLowerCase());
+ 
   });  
 
   $(document).on('click', '.js-channel-item', function(e) {
@@ -385,8 +390,8 @@ $(function() {
     document.description = $(this).find('.teams div:nth-child(1)').text() + "-" + $(this).find('.teams div:nth-child(2)').text() + "maçını SLive TV'de hd kalite ile izleyebilirisiniz.";
     const homeTeam = $(this).find('.teams div:nth-child(1)').text().replace(/\s/g,"-").toLowerCase();
     const awayTeam = $(this).find('.teams div:nth-child(2)').text().replace(/\s/g,"-").toLowerCase();
-    window.history.pushState('match', title, '/live/maci-canli-izle/'+homeTeam+'-' + awayTeam);
-
+    window.history.pushState('match', title, base_url+'/maci-canli-izle/'+homeTeam+'-' + awayTeam+"-"+timeConverter(Date.now()));
+    $('body').scrollTo('.live-scores');
 
     
     
@@ -517,6 +522,7 @@ $(function() {
   };  
 
   $('.js-tab-item').on('click', function() {
+    
     $('.js-tab-item').removeClass('active');
     $(this).addClass('active');
     var category = $(this).attr('data-focustab');
@@ -568,5 +574,20 @@ $(function() {
   $('.next-match-splash .close-splash').on('click', function() {
     $('.next-match-splash').hide();
   });
+  
 });
 
+$(document).ready(function(){
+  $('body').scrollTo('.live-scores');
+})
+function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = a.getMonth();
+  var date = a.getDate();
+ 
+  var time = year +"-"+month+"-"+date;
+  //var time = date + '-' + month + '-' + year ;
+  return time;
+}

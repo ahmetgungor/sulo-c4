@@ -89,6 +89,7 @@ class Yazi extends BaseController
 
             $data['tasarim'] = old('tasarim');
             $data['ustmenu'] = old('ustmenu');
+            $data['ekalan'] = old('ekalan');
           
         }else{
             $row = $page->find($id);
@@ -105,6 +106,7 @@ class Yazi extends BaseController
             $data['yayin'] = $row['yayin'];
             $data['tasarim'] = $row['tasarim'];
             $data['ustmenu'] = $row['ustmenu'];
+            $data['ekalan'] =$row['ekalan'];
         }
         
        
@@ -173,6 +175,7 @@ class Yazi extends BaseController
         
         $data['dil'] = $this->request->getPost('dil');
         $data['site'] = $this->request->getPost('site');
+        $data['ekalan'] = $this->request->getPost('ekalan');
         $data['tip'] = $tip;
         //NOTE:İçerik Yayınlansınmı 
         $yayin = $this->request->getPost('yayin');
@@ -234,6 +237,7 @@ class Yazi extends BaseController
         $data['dil'] = $this->request->getPost('dil');
         $data['site'] = $this->request->getPost('site');
         $data['tip'] = $tip;
+        $data['ekalan'] = $this->request->getPost('ekalan');
         //NOTE:İçerik Yayınlansınmı 
         $yayin = $this->request->getPost('yayin');
         if(isset($yayin) || !empty($yayin))

@@ -25,6 +25,8 @@
                         <?=input_('Başlık','baslik',['id'=>'baslik','value'=>$baslik])?>
                         <?=input_('Link','link',['id'=>'link','value'=>$link])?>
                         <textarea name="aciklama" id="editor1" cols="30" rows="10"><?=$aciklama?></textarea>
+                        <hr>
+                        <?=input_('Ek Alan <small>icon - url - Ek Açıklama</small>','ekalan',['id'=>'ekalan','value'=>$ekalan])?>
                     </div>
                 </div>
             </div>
@@ -120,7 +122,7 @@
 <?php
 if(!empty($id))
 {
-    echo view('Admin/resim',['id'=>$id]);
+    echo view('admin/resim',['id'=>$id]);
 }
 
 
