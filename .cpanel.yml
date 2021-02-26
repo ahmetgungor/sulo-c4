@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/iptalinet/c4.iptali.net/
+    - export DEPLOYPATH=/home/intrabettv/
     - /bin/cp -R * $DEPLOYPATH
     
