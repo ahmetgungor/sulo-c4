@@ -1,6 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/intrabettv/
-    - /bin/cp -R * $DEPLOYPATH
-    
+    - export DEPLOYPATH=/home/intrabettv
+    - /bin/rm -Rf $DEPLOYPATH
+    - /bin/mkdir $DEPLOYPATH
+    - /bin/cp -R src/ $DEPLOYPATH
