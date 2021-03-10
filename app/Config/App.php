@@ -22,7 +22,7 @@ class App extends BaseConfig
 	|
 	*/
 	//public $baseURL = 'http://127.0.0.2/';
-	public $baseURL = 'http://iptali.net/';
+	 public $baseURL = 'http://intrabettv.com/';
 	/* http://c5.iptali.net/
 	|--------------------------------------------------------------------------
 	| Index File

@@ -1,4 +1,13 @@
 
+  <style>
+.channels .item img {
+    max-width:125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  </style>
+  
   <div class="wrapper">
     <div class="channels">
       <div class="js-next">

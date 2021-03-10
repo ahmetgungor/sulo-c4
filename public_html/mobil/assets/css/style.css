@@ -79,18 +79,20 @@ body * {
   cursor: pointer;
   position: relative;
   border: 1px solid transparent;
-  display: flex;
+  /* display: flex; */
   color: #fff;
   align-items: center;
   text-align: center;
-  justify-content: space-between;  
+  justify-content: space-between;
   border-radius: 5px;
-  padding: 20px 15px;
+  padding: 20px 15px!important;
   border: solid 1px rgba(255,255,255,0.1);
   background: linear-gradient(135deg,transparent,rgba(255,255,255,0.1));
+  margin-left: 16px;
+  max-height: 95px;
 }
 .channels .item img {
-  max-width: 40px;
+
 }
 .channels .item p {
   opacity: .5;

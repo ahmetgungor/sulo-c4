@@ -32,9 +32,9 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => 'iptaline_admin',
-		'password' => 'iptaline_admin',
-		'database' => 'admin123456*',
+		'username' => 'intrabettv_db',
+		'password' => 'intrabettv_db',
+		'database' => 'db123456*',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

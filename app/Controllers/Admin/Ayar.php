@@ -55,6 +55,9 @@ class Ayar extends BaseController
         $this->savePost("bgcolor","bgcolor",$site,$dil);
         $this->savePost("bglink","bglink",$site,$dil);
 
+        $this->savePost("ydomain","ydomain",$site,$dil);
+        $this->savePost("yurl","yurl",$site,$dil);
+
         $this->upload("mobile_reklam1",'mobile_reklam1',$site,$dil);
         $this->savePost("mobile_reklam1url","mobile_reklam1url",$site,$dil);
         
@@ -114,7 +117,9 @@ class Ayar extends BaseController
         if (isset($name) && !empty($name->getName())) {
             
               $imageName =  strtolower( \convert_accented_characters(\underscore($name->getName())));
+              print_r($imageName);
               $uploadStatus=  $name->move(ROOTPATH.'public_html/uploads/setting',$imageName);
+              print_r($uploadStatus);
               if($uploadStatus)
               {
                 $where = ['anahtar'=>$dbName,'site'=>$site,'dil'=>$dil];

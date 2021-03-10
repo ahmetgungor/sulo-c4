@@ -13,8 +13,25 @@
                   <path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" class=""></path>
                 </svg>
               </div>
-            </div>            
+            </div>     
+            <style>
+              .videopop{
+                position: absolute;
+                background: rgb(0,0,0,0.7);
+                width: 100%;
+                height: 90%;
+                z-index: 999;
+                color:#FFF; 
+                text-align: center;
+                display: none;
+            }
+            .videopop h2{
+              align-items: center;
+              text-align: center;
+            }
+            </style>       
             <div class="video-loader js-loader">
+            
               <div class="loader-text">
                 <div class="loader-teams">
                   <div class="loader-home">
@@ -33,7 +50,10 @@
                 </div>
                 <div class="loader-loading">Yükleniyor...</div>
               </div>
-            </div>                   
+            </div>     
+            <div class="videopop">
+              <h2>Reklam Gelecek</h2>
+            </div>              
             <video muted class="demo-player-area" playsinline controls style={{ minHeight: 470 }} data-poster={Loading}>
 
             </video>
@@ -309,6 +329,9 @@
       </div>
     </div>    
     <div class="channel-area match-list-area">
+    <a href="" id="reklam2">
+      <img src="" id="reklam2img">
+    </a>
       <div class="matches-day">
         <div class="js-next">
           <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><g><path class="icon-pasif" fill="currentColor" d="M188.74 256l56.78 56.89L91.21 466.9a24 24 0 0 1-33.94 0l-22.7-22.65a23.93 23.93 0 0 1 0-33.84z"></path><path class="icon-aktif" fill="currentColor" d="M91.25 45.06l194.33 194a23.93 23.93 0 0 1 0 33.84l-40 40-211-211.34a23.92 23.92 0 0 1 0-33.84l22.7-22.65a24 24 0 0 1 33.97-.01z"></path></g></svg>

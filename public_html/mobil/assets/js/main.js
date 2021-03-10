@@ -2,7 +2,7 @@
   
   $(function() {
 
-    $.getJSON("http://iptali.net/services/kanal_listesi/tbcof.com/1", function(data){
+    $.getJSON("https://intrabettv.com/services/kanal_listesi/tbcof.com/1", function(data){
       document.title = data.baslik + 'Ücretiz Maç İzle - 2020';
       document.description = data.baslik + 'Ücretiz Maç İzle - 2020';
       $("#reklam1 img").attr("src",upload_dir+data.mobile_reklam1)
@@ -12,7 +12,40 @@
       $(".bet").click(function(e){
         window.location.href = data.bahisyap_btn;
       })
+      data.channels.map(item => {
+        $('.js-channels').append(`
+          <div class="item js-match-item" data-name="${item.name}" data-stream="${item.stream}">
+              <center><img src="${item.logo}" /></center>
+          </div>
+        `);
+        $('.js-channels').slick('unslick');
+    $('.js-channels').slick({
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 690,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        }
+      ]              
     });
+        
+    });
+
+    data.channels.map(item => {
+      $('.news-list').append(`
+      <div class="single-news">
+      <div class="single-news-image"><img src="${upload_dir+item.resim}" alt=""></div>
+      <div class="single-news-detail">
+        <div class="news-date"></div>
+        <div class="news-title">${item.baslik}</div>
+      </div>
+    </div>
+      `);
+      });
 
     var url = 'https://1-xbahis61688.com/LiveFeed/Get1x2_VZip?count=500&lng=tr&mode=7';
     $.ajax({
@@ -39,45 +72,12 @@
                 </div>
               `);
             });
-            res.live.slice(0,6).map(item => {
-              $('.js-channels').append(`
-                <div>
-                  <div class="item js-match-item" data-type="${item.type}" data-stream="${item.streamId}">
-                    <div>
-                      <img src="${item.homeLogo}" alt="" />
-                    </div>
-                    <div class="info">
-                      <p>${moment.unix(item.time).format("HH:mm")} / ${item.type}</p>
-                      <p>${item.category}</p>
-                      <div class="teams">
-                        <div>${item.homeName}</div>
-                        <div>${item.awayName}</div>
-                      </div>
-                    </div>
-                    <div>
-                      <img src="${item.awayLogo}" alt="" />
-                    </div>
-                  </div>  
-                </div>    
-              `);
-              $('.js-channels').slick('unslick');
-              $('.js-channels').slick({
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                responsive: [
-                  {
-                    breakpoint: 690,
-                    settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1
-                    }
-                  }
-                ]              
-              });
-            });
-  
+         
+           /*buraya yapışacak*/
+           
             $('.js-category-toggle:nth-child(1)').trigger('click');
         }
+      }); 
     }); 
   
     // Channels

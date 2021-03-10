@@ -12,8 +12,7 @@ class Menu extends BaseController
     public function __construct()
     {
        // $this->session = Services::session();
-       
-    
+      
     }
 
     function index2()

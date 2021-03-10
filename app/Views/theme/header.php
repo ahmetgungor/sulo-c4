@@ -1,13 +1,18 @@
+<?php
+  $data = file_get_contents(base_url("services/setting/tbcof.com/1"));
+  $data = json_decode($data,true);
+  $menu = $data['AnaMenu'];
 
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="utf-8">
     <script>
-      var base_url = "<?=base_url('theme/index')?>";
+      var base_url = "<?=base_url()?>";
       var upload_dir = "<?=base_url("/uploads/setting")?>/";
-      
     </script>
+    
     <link rel="stylesheet" href="<?=base_url()?>/live/assets/css/reset.css?r=<?=rand(0,99999)?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,27 +43,21 @@
     <meta name="keywords" content=" stream,slive tv, slive,maç izle,canlı izle">
     
     <style>
-      #pagesikin{  
-        position: fixed;
-        left: 0;
-        right: 0;
-        top:0;
-        background: no-repeat center;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-
-
+    #pagesikin{background-image: url("<?=base_url("uploads/setting/".$data['arkaplan'])?>");}
+    <?=$data['css']?>
     </style>
-
+  <script>
+    <?=$data['js']?>
+     
+  </script> 
 </head>
 <body>
-<a target="_blank" href="http://www.google.com.tr" id="pagesikin"></a>
+<a target="_blank" href="<?=$data['bglink']?>" id="pagesikin" style=""></a>
   <div class="container">
     <div class="header">
       <div class="top">
         <div class="js-message-area">
+        Güncel Adresimiz: <a href="<?=$data['yurl']?>"><?=$data['ydomain']?></a>
         </div>
 
         <div class="socials">
@@ -98,45 +97,21 @@
       </div>
       <div class="navigation">
         <a href="#">
-          <img src="<?=base_url()?>/live/assets/images/slive.png" style="width: 130px" />
+          <img src="<?=base_url("uploads/setting/".$data['logo'])?>" class="js-site-logo" style="width: 170px" />
         </a>
         <ul>
+          <?php
+          foreach ($menu as $key => $v) {
+            
+          
+          ?>
           <li>
-            <a href="/" target="_self" rel="">
-              <div><i class="fas fa-home"></i></div>
-              <span>ANASAYFA</span>
+            <a href="<?=($v['tasarim']=='Link')?$v['link']:'/'?>" target="_self" rel="">
+              <div><i class="<?=$v['ekalan'] ?>"></i></div>
+              <span><?=$v['baslik']?></span>
             </a>
           </li>
-          <li>
-            <a href="/" target="_self" rel="">
-              <div><i class="fas fa-newspaper"></i></div>
-              <span>BLOG</span>
-            </a>
-          </li>
-          <li>
-            <a href="/" target="_self" rel="">
-              <div><i class="fas fa-address-book"></i></div>
-              <span>ADRES</span>
-            </a>
-          </li>
-          <li>
-            <a href="/" target="_self" rel="">
-              <div><i class="fas fa-adjust"></i></div>
-              <span>LOREM</span>
-            </a>
-          </li>          
-          <li>
-            <a href="/" target="_self" rel="">
-              <div><i class="fas fa-atom"></i></div>
-              <span>IPSUM</span>
-            </a>
-          </li>          
-          <li>
-            <a href="/" target="_self" rel="">
-              <div><i class="fas fa-award"></i></div>
-              <span>AMET</span>
-            </a>
-          </li>                              
+          <?php } ?>                              
         </ul>
       </div>
       <div class="channel-area channels match-list-area">
@@ -155,9 +130,12 @@
       <div class="live-scores">
         <div class="title">Canlı Skorlar</div>
         <div class="results">
-          <div class="inner js-live-scores" style="animation-duration: 1000">
+          <div class="inner js-live-scores" style="animation-duration: 159560ms;">
 
           </div>
         </div>        
-      </div>      
+      </div>
+      <a href="" id="reklam1">
+      <img src="" id="reklam1img">
+      </a>      
     </div>  

@@ -1,17 +1,35 @@
 $(function() {
 
-  $.getJSON("http://iptali.net/services/kanal_listesi/tbcof.com/1", function(data){
+  $.get("https://intrabettv.com/services/kanal_listesi/tbcof.com/1", function(data){
     console.log(data)
       document.title = data.baslik + 'Ücretiz Maç İzle - 2020';
       document.description = data.baslik + 'Ücretiz Maç İzle - 2020';
-      $('.js-message-area').text(data.logo);
-      $('.js-site-logo').attr('src', upload_dir+data.logo);
+      //$('.js-message-area').text(data.baslik);
+      //$('.js-site-logo').attr('src', upload_dir+data.logo);
       document.documentElement.style.setProperty('--base_color', data.bgcolor);
-      $('#pagesikin').css('background-image', 'url("' + upload_dir+data.arkaplan + '")');
-      $('#pagesikin').attr('href',data.bglink);
+      //$('#pagesikin').css('background-image', 'url("' + upload_dir+data.arkaplan + '")');
+      //$('#pagesikin').attr('href',data.bglink);
+      $("#reklam1").attr("href",data.reklam1url);
+      $('#reklam1img').attr('src', upload_dir+data.reklam1);
+      $("#reklam2").attr("href",data.reklam2url);
+      $('#reklam2img').attr('src', upload_dir+data.reklam2);
+    
+      data.haberler.map(item => {
+        $('.news-list').append(`
+        <div class="single-news">
+            <div class="single-news-image"><img src=""></div>
+            <div class="single-news-detail">
+              <div class="news-date"> ${moment(item.y_tarihi).format('h:mm')}</div>
+              <div class="news-title"> ${item.baslik}</div>
+            </div>
+          </div>
+         
+        `);
+      });
+
       data.channels.map(item => {
         $('.js-channel-items').append(`
-          <div class="item js-channel-item" data-name="${item.name}">
+          <div class="item js-channel-item" data-name="${item.name}" data-stream="${item.stream}">
               <img src="${item.logo}" style="width: 130px" />
           </div>
         `);
@@ -141,6 +159,11 @@ $(function() {
             enabled: true,
             iosNative: true
         },
+        ads:{
+          enabled: false,
+          publisherId: '',
+          tagUrl: 'https://intrabettv.com/uploads/setting/reklam2.jpg'
+        },
         captions: {
             active: true,
             update: true,
@@ -189,6 +212,18 @@ $(function() {
             },
         },
     });
+   
+      setTimeout(function () {
+        player.pause();
+       $(".videopop").show(1000)
+      
+      }, 12000);
+      setTimeout(function () {
+        player.play();
+       $(".videopop").show(1000)
+      
+      }, 18000);
+      
   }
 
 (function(a, b, c, d, e, f, g, h, i) {
@@ -257,10 +292,13 @@ $(function() {
             `);
           });
 
+           
+
+
           res.live.slice(0,6).map(item => {
             $('.js-matchday-items').append(`
-              <div>
-                <div class="item js-match-item" data-type="${item.type}" data-stream="${item.streamId}">
+              <div class="">
+                <div class="item js-match-item bgmac t_${item.type}" data-type="${item.type}" data-stream="${item.streamId}" >
                   <div>
                     <img src="${item.homeLogo}" alt="" />
                   </div>
@@ -295,9 +333,9 @@ $(function() {
             ]              
           });                
 
-          $('.live-matches .js-match-item:nth-child(1)').trigger('click');
-          $('.live-matches .js-category-toggle:nth-child(1)').trigger('click');
-
+         $('.js-channel-item:nth-child(1)').trigger('click');
+         // $('.live-matches .js-category-toggle:nth-child(1)').trigger('click');
+          /*
           if($('.js-match-item:nth-child(1)').attr('data-stream') !== 'null') {
             var video = document.querySelector('.demo-player-area');
 
@@ -311,7 +349,7 @@ $(function() {
               });
             }
           
-          }
+          }*/
       }
   }); 
 
@@ -372,7 +410,55 @@ $(function() {
   $(document).on('click', '.js-channel-item', function(e) {
     $('.next-match-splash').hide();
     $('.js-loader').hide();
-    $('.live-matches .js-match-item:nth-child(1)').trigger('click');
+    //$('.live-matches .js-match-item:nth-child(1)').trigger('click');
+
+
+    if($(this).attr('data-stream') !== 'null') {
+      $('body').removeClass('hide-player');
+      $('body').addClass('player-active');
+
+      if($(window).width() > 768)  {
+        var video = document.querySelector('.demo-player-area');
+        var videoSrc = $(this).attr('data-stream');
+        if (Hls.isSupported()) {
+          var hls = new Hls();
+          hls.loadSource(videoSrc);
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            video.play();
+          });
+        }
+      }
+
+      if($(window).width() <= 768)  {
+          $('.mobile-player').empty();
+            var player = new Clappr.Player({
+            width: "100%",
+            height: "250px",
+            source: $(this).attr('data-stream'),
+            parentId: ".mobile-player",
+            language: "tr-TR",
+            disableVideoTagContextMenu: false,
+            autoPlay: true,
+            mute: false,
+            fs: '0',
+            preload: "metadata",
+            playback: {
+              controls: false,
+              playInline: false,
+              recycleVideo: false,            
+              minimumDvrSize: null,
+              hlsjsConfig: {
+                  maxMaxBufferLength: 7,
+                  hlsUseNextLevel: true
+              },
+              shakaConfiguration: {},
+            }          
+        });        
+      }
+  
+    }
+
   });
 
   $(document).on('click', '.js-match-item', function(e) {

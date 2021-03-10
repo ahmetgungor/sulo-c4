@@ -27,10 +27,20 @@
               </li>
 
               <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Haberler</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="<?=base_url("admin/yazi/index/5/1")?>">Yeni Sayfa</a></li>
+                  <li><a class="nav-link" href="<?=base_url("admin/yazi/list/5")?>">Listele</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kanal Listesi</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?=base_url("admin/yazi/index/5/1")?>">Yeni Kanal</a></li>
                   <li><a class="nav-link" href="<?=base_url("admin/yazi/list/5")?>">Listele</a></li>
+                  <li><a class="nav-link" href="<?=base_url("admin/yazi/klist/5")?>">Otomatik Kanal Listesi</a></li>
+                 
                 </ul>
               </li>
               <li class="nav-item "><a href="<?=base_url("admin/kategori/index/2")?>" class="nav-link" title="Kategori İşlemleri"><i class="fas fa-th"></i> <span>Kategori İşemleri</span></a>

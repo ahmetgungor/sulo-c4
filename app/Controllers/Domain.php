@@ -29,6 +29,10 @@ class Domain extends BaseController
             [""=>"Lütfen Site Seçin"],
             ["tbcof.com"=>"tbcof.com"]
         );
+
+        $domain['Genel']['url'] = array(
+            ["kanalurl"=>"http://livesports.b-cdn.net/live3.txt"],
+        );
         
             return $this->response->setJSON($domain);
         endif;

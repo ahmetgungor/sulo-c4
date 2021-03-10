@@ -13,7 +13,9 @@ class Login extends BaseController
 		
 		//session tanımla
 		$this->session = Services::session();
-		
+		$session =	\Config\Services::session();
+		$status = $session->get('status');	
+       
 	}
 
 	public function userList()

@@ -153,6 +153,42 @@ if(empty($site) && empty($dil)):
             </div>
     </div>
 </div>
+
+
+<div class="row">
+    <div class="col-lg-6">
+            <div class="form-group">
+                <label>Yönlendirilecek Domain</label>
+                <?php
+                $vdata = (array_key_exists('ydomain',$ad))?$ad['ydomain']:'';
+                if(array_key_exists('ydomain',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=ydomain")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+                <input type="text" name="ydomain" class="form-control" value="<?=$vdata?>">
+            </div>
+    </div>
+    <div class="col-lg-6">
+            <div class="form-group">
+                <label>Yönlendirilecek Url</label>
+                <?php
+                $vdata = (array_key_exists('yurl',$ad))?$ad['yurl']:'';
+                if(array_key_exists('yurl',$ad))
+                {
+                ?>
+                    <a href="<?=base_url("admin/ayar/index?promo=".$promo."&site=".$site."&dil=".$dil."&sil=yurl")?>" onclick="return confirm('Silmek İstediğinize Eminmisiniz')" style="color:red; margin-left:20px;" class="mb-1" ><i class="fas fa-trash"></i> Sil</a>
+                <?php
+                }
+                ?>
+                <input type="text" name="yurl" class="form-control" value="<?=$vdata?>">
+            </div>
+    </div>
+</div>
+
+
 <hr>
 <?php
 endif;

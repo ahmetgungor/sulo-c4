@@ -30,7 +30,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+
 
 /**
  * --------------------------------------------------------------------
@@ -50,15 +51,24 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
 
+$routes->get('login', 'Admin\Login::log_in',['as' => 'login']);
 
-$routes->group('admin', function($routes)
+$routes->get('admin/ayar', 'Admin\Ayar',['filter' => 'AdminFilter']);
+$routes->get('admin/menu', 'Admin\Menu',['filter' => 'AdminFilter']);
+$routes->get('admin/kategori', 'Admin\Kategori',['filter' => 'AdminFilter']);
+
+
+$routes->get('admin/resim', 'Admin\Resim',['filter' => 'AdminFilter']);
+$routes->get('admin/yazi', 'Admin\Yazi',['filter' => 'AdminFilter']);
+
+$routes->group('admin', ['filter' => 'AdminFilter'], function($routes)
 {
-	$routes->get('login', 'Admin\Login::index',['as' => 'login']);
+	$routes->get('login', 'Admin\Login::log_in',['as' => 'login']);
 	$routes->get('login/edit/(:num)', 'Admin\Login::index/$1');
 	$routes->post('login', 'Admin\Login::indexPost');
 	$routes->post('login/update/(:num)', 'Admin\Login::update/$1');
 	$routes->get('login/list', 'Admin\Login::userList');
-
+	
 
 	$routes->group('grup',function($routes){
 		
@@ -66,5 +76,9 @@ $routes->group('admin', function($routes)
 		//$routes->match(['get','post'],'index','admin\UyeGrup::index');
 
 	});
-
+	
 });
+
+$routes->get('/', 'Theme::index1');
+$routes->get('/maci-canli-izle/(:any)', 'Theme::index1');
+$routes->get('/canli-izle/(:any)', 'Theme::index1');

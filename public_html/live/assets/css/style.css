@@ -3462,9 +3462,9 @@ video {
   max-width: 40px;
 }
 .matches-day .item p {
-  opacity: .5;
-  font-size: 11px;
-  font-weight: 300;
+
+  font-size: 12px;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 .matches-day .item .teams {
@@ -3605,3 +3605,61 @@ video {
 }
 
 svg { max-height: 30px; margin-right: 10px; } 
+.t_Futbol{background-image:url("../images/Futbol.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: 100% 75% !important;
+}
+
+.t_Futbol{background-image:url("../images/Futbol.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: 100% 75% !important;
+}
+
+.t_Basketbol{background-image:url("../images/Basketbol.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: 100% 75% !important;
+}
+.t_Voleybol{background-image:url("../images/Voleybol.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: 100% 75% !important;
+}
+
+#pagesikin {
+
+  background: no-repeat center top;
+
+}
+
+.channel-area .slick-slide {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  text-align: center;
+  padding: 1em .5em;
+  gap: .5em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 75%;
+  min-height: 120px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  user-select: none;
+  transition: all 200ms linear;
+}
+
+.channel-area .slick-slide:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center,rgba(0,0,0,0.4),rgba(0,0,0,0.8));
+  z-index: 1;
+  transition: all 200ms linear;
+}
