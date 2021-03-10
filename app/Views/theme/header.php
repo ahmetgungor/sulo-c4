@@ -1,5 +1,5 @@
 <?php
-  $data = file_get_contents(base_url("services/setting/tbcof.com/1"));
+  $data = file_get_contents(base_url("services/setting/".$_SERVER['SERVER_NAME']."/1"));
   $data = json_decode($data,true);
   $menu = $data['AnaMenu'];
 
@@ -43,21 +43,21 @@
     <meta name="keywords" content=" stream,slive tv, slive,maç izle,canlı izle">
     
     <style>
-    #pagesikin{background-image: url("<?=base_url("uploads/setting/".$data['arkaplan'])?>");}
+    #pagesikin{background-image: url("<?=base_url("uploads/setting/".(array_key_exists('arkaplan',$data)?$data['arkaplan']:''))?>");}
     <?=$data['css']?>
     </style>
   <script>
-    <?=$data['js']?>
+    <?=(array_key_exists('js',$data)?$data['js']:'')?>
      
   </script> 
 </head>
 <body>
-<a target="_blank" href="<?=$data['bglink']?>" id="pagesikin" style=""></a>
+<a target="_blank" href="<?=(array_key_exists('bglink',$data)?$data['bglink']:'')?>" id="pagesikin" style=""></a>
   <div class="container">
     <div class="header">
       <div class="top">
         <div class="js-message-area">
-        Güncel Adresimiz: <a href="<?=$data['yurl']?>"><?=$data['ydomain']?></a>
+        Güncel Adresimiz: <a href="<?=(array_key_exists('yurl',$data)?$data['yurl']:'')?>"><?=(array_key_exists('ydomain',$data)?$data['ydomain']:'')?></a>
         </div>
 
         <div class="socials">
@@ -97,7 +97,7 @@
       </div>
       <div class="navigation">
         <a href="#">
-          <img src="<?=base_url("uploads/setting/".$data['logo'])?>" class="js-site-logo" style="width: 170px" />
+          <img src="<?=base_url("uploads/setting/".(array_key_exists('logo',$data)?$data['logo']:''))?>" class="js-site-logo" style="width: 170px" />
         </a>
         <ul>
           <?php

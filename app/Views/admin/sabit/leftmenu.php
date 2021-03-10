@@ -47,9 +47,9 @@
               </li>
               <li class="nav-item "><a href="<?=base_url("admin/menu/index")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Menu</span></a>
               </li>
-              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=false&site=tbcof.com&dil=1")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Site Ayarları</span></a>
+              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=false&site=".$_SERVER['SERVER_NAME']."&dil=1")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Site Ayarları</span></a>
               </li>
-              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=true&site=tbcof.com&dil=1")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Reklam Ayarları</span></a>
+              <li class="nav-item "><a href="<?=base_url("admin/ayar/index?promo=true&site=".$_SERVER['SERVER_NAME']."&dil=1")?>" class="nav-link" title="Menu İşlemleri"><i class="fas fa-th"></i> <span>Reklam Ayarları</span></a>
               </li>
             </ul>
 
